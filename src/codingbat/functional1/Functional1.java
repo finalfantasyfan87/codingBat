@@ -2,8 +2,14 @@ package codingbat.functional1;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.stream.Collectors;
+//github finalfantasyguru8705
 public class Functional1 {
+//map() method is used to transform the object within the collection or stream
+    //filter() is used to filter the stream
+    //collect() is terminal which means it will return something. We can pass in
+    //collect(Collectors.toList())  Collectors.toMap()or Collectors.toSet() , etc to specify which collection we want.
+
 
    /* Functional-1 > doubling
     prev  |  next  |  chance
@@ -81,5 +87,34 @@ math1([10]) → [110]
             return numsList;
 
         }
+        /*
+Functional-1 > rightDigit
+
+Given a list of non-negative integers, return an integer list of the rightmost digits. (Note: use %)
+
+
+rightDigit([1, 22, 93]) → [1, 2, 3]
+rightDigit([16, 8, 886, 8, 1]) → [6, 8, 6, 8, 1]
+rightDigit([10, 0]) → [0, 0]
+         */
+        public List<Integer> rightDigit(List<Integer> nums) {
+            List<Integer> numsList = nums.stream().map(num-> num%10).collect(Collectors.toList());
+            return numsList;
+        }
+
+        /*
+        Functional-1 > lower
+Given a list of strings, return a list where each string is converted to lower case (Note: String toLowerCase() method).
+
+lower(["Hello", "Hi"]) → ["hello", "hi"]
+lower(["AAA", "BBB", "ccc"]) → ["aaa", "bbb", "ccc"]
+lower(["KitteN", "ChocolaTE"]) → ["kitten", "chocolate"]
+         */
+        public List<String> lower(List<String> strings) {
+            List<String> stringsList = strings.stream().map(s-> s.toLowerCase()).collect(Collectors.toList());
+            return stringsList;
+        }
+
+
 
 }
