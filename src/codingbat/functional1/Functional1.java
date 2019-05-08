@@ -1,5 +1,6 @@
 package codingbat.functional1;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Functional1 {
@@ -40,4 +41,19 @@ addStar(["*"]) → ["**"]
         strings.replaceAll(a -> a.concat("*"));
         return strings;
     }
+
+
+    /*
+    Functional-1 > copies3
+Given a list of strings, return a list where each string is replaced by 3 copies of the string concatenated together.
+copies3(["a", "bb", "ccc"]) → ["aaa", "bbbbbb", "ccccccccc"]
+copies3(["24", "a", ""]) → ["242424", "aaa", ""]
+copies3(["hello", "there"]) → ["hellohellohello", "theretherethere"]
+     */
+    public List<String> copies3(List<String> strings) {
+        List<String> somelist = new ArrayList<>();
+        strings.forEach(s -> somelist.add(s+s+s));
+        return somelist;
+    }
+
 }
