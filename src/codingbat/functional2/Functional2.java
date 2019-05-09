@@ -90,4 +90,16 @@ noYY(["xx", "ya", "zz"]) → ["xxy", "yay", "zzy"]
     public List<String> noYY(List<String> strings) {
 return strings.stream().map(a->a.concat("y")).filter(a->!(a.contains("yy"))).collect(Collectors.toList());
     }
+
+    /*
+
+Given a list of non-negative integers, return a list of those numbers multiplied by 2, omitting any of the resulting numbers that end in 2.
+
+two2([1, 2, 3]) → [4, 6]
+two2([2, 6, 11]) → [4]
+two2([0]) → [0]
+     */
+    public List<Integer> two2(List<Integer> nums) {
+return nums.stream().map(i->i*2).filter(i-> (i>=0 && i%10 !=2)).collect(Collectors.toList());
+    }
 }
