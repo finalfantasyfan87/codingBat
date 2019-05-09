@@ -115,6 +115,18 @@ lower(["KitteN", "ChocolaTE"]) → ["kitten", "chocolate"]
             return stringsList;
         }
 
+/*
+Functional-1 > noX
+Given a list of strings, return a list where each string has all its "x" removed.
 
+
+noX(["ax", "bb", "cx"]) → ["a", "bb", "c"]
+noX(["xxax", "xbxbx", "xxcx"]) → ["a", "bb", "c"]
+noX(["x"]) → [""]
+ */
+public List<String> noX(List<String> strings) {
+    List<String> stringies = strings.stream().map(s -> s.replaceAll("x","")).collect(Collectors.toList());
+    return stringies;
+}
 
 }
