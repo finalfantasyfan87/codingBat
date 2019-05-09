@@ -65,4 +65,29 @@ noLong(["cccc", "cccc", "cccc"]) → []
         return strings.stream().filter(s -> !(s.length() >4)).collect(Collectors.toList());
     }
 
+/*
+
+Given a list of strings, return a list of the strings, omitting any string length 3 or 4.
+
+
+no34(["a", "bb", "ccc"]) → ["a", "bb"]
+no34(["a", "bb", "ccc", "dddd"]) → ["a", "bb"]
+no34(["ccc", "dddd", "apple"]) → ["apple"]
+ */
+public List<String> no34(List<String> strings) {
+return strings.stream().filter(s -> !(s.length() == 3 || s.length() ==4)).collect(Collectors.toList());
+}
+
+/*
+Given a list of strings, return a list where each string has "y" added at its end, omitting any resulting strings that contain "yy" as a substring anywhere.
+
+
+noYY(["a", "b", "c"]) → ["ay", "by", "cy"]
+noYY(["a", "b", "cy"]) → ["ay", "by"]
+noYY(["xx", "ya", "zz"]) → ["xxy", "yay", "zzy"]
+ */
+
+    public List<String> noYY(List<String> strings) {
+return strings.stream().map(a->a.concat("y")).filter(a->!(a.contains("yy"))).collect(Collectors.toList());
+    }
 }
