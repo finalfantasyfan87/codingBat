@@ -112,7 +112,7 @@ square56([1]) → [11]
 square56([2]) → [14]
      */
     public List<Integer> square56(List<Integer> nums) {
-return nums.stream().map(num-> Math.pow(num,2)+10).filter(a-> !(a %10 !=5 || a%10 !=6)).collect(Collectors.toList())
+        return nums.stream().map(num-> (num*num)+10).filter(a-> !(a %10 ==5 || a%10 ==6)).collect(Collectors.toList());
     }
 
 }
