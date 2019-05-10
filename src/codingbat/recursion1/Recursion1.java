@@ -1,6 +1,6 @@
 package codingbat.recursion1;
 
-public class Recursion1{
+public class Recursion1 {
 
     /*
 
@@ -13,10 +13,10 @@ factorial(3) → 6
 
      */
     public int factorial(int n) {
-        if(n==1){
+        if (n == 1) {
             return 1;
         }
-        return n * factorial(n-1);
+        return n * factorial(n - 1);
     }
 
 /*
@@ -29,10 +29,10 @@ bunnyEars(2) → 4
  */
 
     public int bunnyEars(int bunnies) {
-        if(bunnies ==0){
+        if (bunnies == 0) {
             return 0;
         }
-        return  bunnyEars(bunnies-1)+2;
+        return bunnyEars(bunnies - 1) + 2;
 
     }
 
@@ -46,31 +46,32 @@ fibonacci(2) → 1
  */
 
     public int fibonacci(int n) {
-        if(n ==0){
+        if (n == 0) {
             return 0;
         }
-        if(n ==1){
+        if (n == 1) {
             return 1;
         }
-        return fibonacci(n-1) + fibonacci(n-2);
+        return fibonacci(n - 1) + fibonacci(n - 2);
 
     }
-/*
-We have bunnies standing in a line, numbered 1, 2, ... The odd bunnies (1, 3, ..) have the normal 2 ears. The even bunnies (2, 4, ..) we'll say have 3 ears, because they each have a raised foot. Recursively return the number of "ears"
- in the bunny line 1, 2, ... n (without loops or multiplication).
-bunnyEars2(0) → 0
-bunnyEars2(1) → 2
-bunnyEars2(2) → 5
- */
-public int bunnyEars2(int bunnies) {
-    if (bunnies == 0 ){
-        return 0;
+
+    /*
+    We have bunnies standing in a line, numbered 1, 2, ... The odd bunnies (1, 3, ..) have the normal 2 ears. The even bunnies (2, 4, ..) we'll say have 3 ears, because they each have a raised foot. Recursively return the number of "ears"
+     in the bunny line 1, 2, ... n (without loops or multiplication).
+    bunnyEars2(0) → 0
+    bunnyEars2(1) → 2
+    bunnyEars2(2) → 5
+     */
+    public int bunnyEars2(int bunnies) {
+        if (bunnies == 0) {
+            return 0;
+        }
+        if (bunnies % 2 == 0) {
+            return 3 + bunnyEars2(bunnies - 1);
+        }
+        return 2 + bunnyEars2(bunnies - 1);
     }
-    if(bunnies % 2==0){
-        return 3+bunnyEars2(bunnies-1);
-    }
-    return 2 + bunnyEars2(bunnies-1);
-}
 
     /*
 We have triangle made of blocks.
@@ -84,14 +85,34 @@ triangle(1) → 1
 triangle(2) → 3
      */
     public int triangle(int rows) {
-        if (rows ==0 ){
+        if (rows == 0) {
             return 0;
         }
-        if (rows ==1){
+        if (rows == 1) {
             return 1;
         }
-        return rows + triangle(rows-1);
+        return rows + triangle(rows - 1);
     }
+
+    /*
+
+Given a non-negative int n, return the sum of its digits recursively (no loops).
+Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6),
+ while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
+sumDigits(126) → 9
+sumDigits(49) → 13
+sumDigits(12) → 3
+     */
+    public int sumDigits(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        if (n < 1) {
+            return 1;
+        }
+        return n % 10 + sumDigits(n / 10);
+    }
+
 
 }
 
